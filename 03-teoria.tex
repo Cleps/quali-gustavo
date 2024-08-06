@@ -55,7 +55,7 @@ O processamento digital de imagens é amplamente aplicado em áreas como a medic
 
 As transformações de intensidade são técnicas no processamento digital de imagens focadas na manipulação direta dos valores de intensidade dos pixels. Elas operam individualmente em cada pixel, possibilitando ajustes de contraste, brilho e outros atributos de uma imagem. O objetivo principal dessas transformações é modificar a aparência visual da imagem para realçar características específicas ou preparar a imagem para análises posteriores \cite{gonzalez2010processamento}.
 
-% No processamento digital, cada pixel de uma imagem é representado por um valor de intensidade, que pode ser ajustado através de uma transformação matemática. A relação entre os valores de intensidade antes e depois da transformação é descrita pela função $𝑠=𝑇(𝑟)$, onde $𝑟$ é o valor de intensidade original, $𝑠$ é o valor de intensidade transformado, e $𝑇$ é a função de transformação. Esses valores são manipulados usando tabelas indexadas, especialmente em ambientes de 8 bits, onde a tabela contém 256 entradas para mapear os valores de $𝑟$ em $𝑠$.
+% No processamento digital, cada pixel de uma imagem é representado por um valor de intensidade, que pode ser ajustado através de uma transformação matemática. A relação entre os valores de intensidade antes e depois da transformação é descrita pela função $s=T(r)$, onde $r$ é o valor de intensidade original, $s$ é o valor de intensidade transformado, e $T$ é a função de transformação. Esses valores são manipulados usando tabelas indexadas, especialmente em ambientes de 8 bits, onde a tabela contém 256 entradas para mapear os valores de $r$ em $s$.
 
 % gonzales pag 55 e 69 operações basicas da transformação de intensidade
 As principais funções de transformação de intensidade incluem:
@@ -81,7 +81,20 @@ Essas transformações são exemplos de como ajustes nos valores de intensidade 
     \label{exemploTransformacaoIntensidade}
 \end{figure}
 
+
 \section{Deep Learning}
+
+Deep Learning, ou Aprendizado Profundo, é uma subárea do aprendizado de máquina que se concentra em redes neurais artificiais com muitas camadas (ou "profundidade"). Estas redes neurais são projetadas para simular o funcionamento do cérebro humano e aprender representações de dados em múltiplos níveis de abstração \cite{goodfellow2016deep}.
+Deep Learning é baseado em redes neurais profundas, que são compostas por múltiplas camadas de neurônios artificiais. Cada camada da rede realiza uma transformação não linear sobre os dados, permitindo à rede aprender representações complexas e hierárquicas dos dados de entrada \cite{haykin2001redes}.
+
+%https://books.google.com.br/books?id=ig8mHog30X0C&lpg=PA398&ots=fnfB2Z7MCV&dq=perceptron%20Rosenblatt&lr&hl=pt-BR&pg=PA398#v=onepage&q=perceptron%20Rosenblatt&f=false % evolucao 
+O campo das redes neurais artificiais evoluiu significativamente desde suas primeiras iterações. Um marco importante nesse desenvolvimento foi o trabalho de \citeonline{rosenblatt2021perceptron}, que introduziu o perceptron na década de 1960. Essa técnica inicial mostrou que, sob certas condições, um perceptron poderia aprender a classificar dados linearmente separáveis, mas enfrentava limitações com problemas mais complexos.
+A real revolução no campo das redes neurais veio com o desenvolvimento de redes neurais de múltiplas camadas. Em 1986, \citeonline{rumelhart19881986} introduziram o algoritmo de retropropagação, também conhecido como a regra delta generalizada. Este método permitiu o treinamento eficaz de redes neurais com várias camadas, superando as limitações dos perceptrons simples e proporcionando um avanço significativo no desempenho e na aplicabilidade das redes neurais.
+
+No nível mais básico, o perceptron é uma rede neural que aprende a tomar decisões lineares, ou seja, ele divide os dados em duas classes distintas com base em uma função de decisão linear. No entanto, redes neurais mais avançadas, como as redes neurais profundas, são capazes de modelar relações complexas e não lineares em dados, permitindo aplicações sofisticadas em áreas como reconhecimento de imagem, processamento de linguagem natural e muito mais.
+
+
+\subsection{Redes Neurais}
 
 \section{Informação de profundidade}
 Sensores de profundidade estão cada vez mais embarcados em equipamentos amplamente difundidos como dispositivos de realidade aumentada (Occulus, Kinnect) e até mesmo em smartphones \cite{du2020depthlab}, principalmente as câmeras ToF, pois são capazes de desempenhar de maneira satisfatória mesmo com baixa potência \cite{branscombe2018microsoft}. De acordo com \cite{xie2021ultradepth}, a adoção de sensores de profundidade em smartphones tende a aumentar nos próximos anos, com diversas aplicações como tradução de linguagem de sinais \cite{park2021enabling} e sistemas de navegação mobile para pessoas com deficiência visual \cite{see2022smartphone}.
@@ -89,4 +102,5 @@ Sensores de profundidade estão cada vez mais embarcados em equipamentos amplame
 %sinal 57, gestos 86, e aumentada 97
 
 Ainda segundo \cite{castellano2023performance}, cada uma das técnicas de aquisição de imagens de profundidade possui lados negativos que podem impactar os dados. Por exemplo, as câmeras ToF podem sofrer com invalidação de pixels próximos a cantos ou bordas de objetos devido à interferências entre os raios IR em superfícies descontínuas ou reflexivas \cite{hansard2012time}. Outros tipos de câmeras RGB-D mais comuns como o Microsoft Kinect ou Intel RealSense podem produzir valores inválidos em superfícies muito brilhantes ou reflexivas como espelhos, superfícies metálicas ou muito escuras \cite{zollhofer2019commodity}. Em ambientes internos, tais imagens podem conter até 50\% de dados faltantes. \cite{zhang2022indepth} \cite{zhang2018deep}. Pontos cuja medição é desconhecida são representados por pixels totalmente pretos ou totalmente brancos \cite{dourado2020multi}.
+
 \section{Modelos de estimação de profundidade}
