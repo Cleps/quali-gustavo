@@ -85,16 +85,50 @@ Essas transformações são exemplos de como ajustes nos valores de intensidade 
 \section{Deep Learning}
 
 Deep Learning, ou Aprendizado Profundo, é uma subárea do aprendizado de máquina que se concentra em redes neurais artificiais com muitas camadas (ou "profundidade"). Estas redes neurais são projetadas para simular o funcionamento do cérebro humano e aprender representações de dados em múltiplos níveis de abstração \cite{goodfellow2016deep}.
-Deep Learning é baseado em redes neurais profundas, que são compostas por múltiplas camadas de neurônios artificiais. Cada camada da rede realiza uma transformação não linear sobre os dados, permitindo à rede aprender representações complexas e hierárquicas dos dados de entrada \cite{haykin2001redes}.
+As redes neurais profundas, são compostas por múltiplas camadas de neurônios artificiais. Cada camada da rede realiza uma transformação não linear sobre os dados, permitindo à rede aprender representações complexas e hierárquicas dos dados de entrada \cite{haykin2001redes}.
 
 %https://books.google.com.br/books?id=ig8mHog30X0C&lpg=PA398&ots=fnfB2Z7MCV&dq=perceptron%20Rosenblatt&lr&hl=pt-BR&pg=PA398#v=onepage&q=perceptron%20Rosenblatt&f=false % evolucao 
-O campo das redes neurais artificiais evoluiu significativamente desde suas primeiras iterações. Um marco importante nesse desenvolvimento foi o trabalho de \citeonline{rosenblatt2021perceptron}, que introduziu o perceptron na década de 1960. Essa técnica inicial mostrou que, sob certas condições, um perceptron poderia aprender a classificar dados linearmente separáveis, mas enfrentava limitações com problemas mais complexos.
+O campo das redes neurais evoluiu significativamente desde suas primeiras iterações. Um marco importante nesse desenvolvimento foi o trabalho de \citeonline{rosenblatt2021perceptron}, que introduziu o perceptron na década de 1960. Essa técnica inicial mostrou que, sob certas condições, um perceptron poderia aprender a classificar dados linearmente separáveis, mas enfrentava limitações com problemas mais complexos.
 A real revolução no campo das redes neurais veio com o desenvolvimento de redes neurais de múltiplas camadas. Em 1986, \citeonline{rumelhart19881986} introduziram o algoritmo de retropropagação, também conhecido como a regra delta generalizada. Este método permitiu o treinamento eficaz de redes neurais com várias camadas, superando as limitações dos perceptrons simples e proporcionando um avanço significativo no desempenho e na aplicabilidade das redes neurais.
 
-No nível mais básico, o perceptron é uma rede neural que aprende a tomar decisões lineares, ou seja, ele divide os dados em duas classes distintas com base em uma função de decisão linear. No entanto, redes neurais mais avançadas, como as redes neurais profundas, são capazes de modelar relações complexas e não lineares em dados, permitindo aplicações sofisticadas em áreas como reconhecimento de imagem, processamento de linguagem natural e muito mais.
+% No nível mais básico, o perceptron é uma rede neural que aprende a tomar decisões lineares, ou seja, ele divide os dados em duas classes distintas com base em uma função de decisão linear. No entanto, redes neurais mais avançadas, como as redes neurais profundas, são capazes de modelar relações complexas e não lineares em dados, permitindo aplicações sofisticadas em áreas como reconhecimento de imagem, processamento de linguagem natural e muito mais. // escrevi e ficou nada ver
+
+O perceptron é uma das estruturas fundamentais das redes neurais, representando o modelo mais simples de um neurônio artificial. Introduzido por \citeonline{rosenblatt2021perceptron}, o perceptron é capaz de realizar classificações binárias, distinguindo entre duas classes distintas com base em dados de entrada.
+
+Um perceptron funciona através de uma série de operações matemáticas simples. Inicialmente, cada entrada é multiplicada por um peso, que é um valor numérico associado a essa entrada. Esses pesos são ajustados durante o processo de treinamento para que o perceptron aprenda a mapear as entradas para as saídas desejadas. A soma ponderada dessas entradas é então calculada e passada por uma função de ativação, que decide se o neurônio "ativa" ou não. Tradicionalmente, a função de ativação usada em um perceptron simples é a função degrau, que retorna um valor binário - geralmente 0 ou 1 \cite{hertz2018introduction}. Esse processo pode ser formalmente expresso pela fórmula:
+
+\[
+y = f\left(\sum_{i=1}^{n} w_i x_i + b\right)
+\]
+
+onde $y$ é a saída do perceptron, $x_i$ são as entradas, $w_i$ são os pesos associados, $b$ é o bias (um termo adicional que permite que o modelo ajuste a função de ativação, mesmo com todas as entradas em zero), e $f$ é a função de ativação.
+
+A Figura \ref{fig:perceptron} ilustra visualmente a estrutura de um perceptron, mostrando as entradas, pesos, soma ponderada, bias, função de ativação e uma saída.
+
+\begin{figure}
+    \centering   
+    \includegraphics[width=\textwidth]{fig/perceptron.png}
+    \caption{Disgrama de um perceptron, ilustrando uma abordagem simplificada baseada na estrutura e função de um neurônio biológico.}
+    \label{fig:perceptron}
+\end{figure}
+
+O perceptron aprende a partir de um processo de ajuste de pesos, conhecido como regra de aprendizagem do perceptron. Durante o treinamento, o perceptron ajusta os pesos com base no erro da saída prevista em relação à saída desejada. Esse ajuste é feito através de um processo iterativo, onde o erro é propagado de volta através da rede e os pesos são atualizados para minimizar o erro, seguindo a equação:
+
+\[
+w_i = w_i + \Delta w_i
+\]
+
+\[
+\Delta w_i = \eta (d - y) x_i
+\]
+
+onde \( \Delta w_i \) é o ajuste do peso, \( \eta \) é a taxa de aprendizado, \( d \) é a saída desejada, e \( y \) é a saída calculada pelo perceptron. A taxa de aprendizado é um parâmetro importante que controla o quão rapidamente o modelo se adapta aos dados.
+
+Embora o perceptron tenha sido um avanço significativo na época de sua introdução, ele tem limitações, especialmente em relação a problemas de classificação não linear. Por exemplo, ele não consegue resolver problemas como o XOR, onde as classes não podem ser separadas por uma linha reta. Essa limitação levou ao desenvolvimento de redes neurais mais complexas, como os perceptrons multicamadas (MLPs), que usam várias camadas de neurônios para aprender representações mais complexas dos dados \cite{bishop2006pattern}. % segundo a referencia xor tem a ver com a generalização
+
+O perceptron, no entanto, segundo \citeonline{hertz2018introduction} permanece um conceito central na teoria das redes neurais, servindo como base para a compreensão de modelos mais sofisticados e sendo uma ferramenta educacional importante para introduzir os conceitos de aprendizado supervisionado e classificação.
 
 
-\subsection{Redes Neurais}
 
 \section{Informação de profundidade}
 Sensores de profundidade estão cada vez mais embarcados em equipamentos amplamente difundidos como dispositivos de realidade aumentada (Occulus, Kinnect) e até mesmo em smartphones \cite{du2020depthlab}, principalmente as câmeras ToF, pois são capazes de desempenhar de maneira satisfatória mesmo com baixa potência \cite{branscombe2018microsoft}. De acordo com \cite{xie2021ultradepth}, a adoção de sensores de profundidade em smartphones tende a aumentar nos próximos anos, com diversas aplicações como tradução de linguagem de sinais \cite{park2021enabling} e sistemas de navegação mobile para pessoas com deficiência visual \cite{see2022smartphone}.
